@@ -1,0 +1,129 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds8yufo085fbw"]
+
+[ext_resource type="Texture2D" uid="uid://bcanwada7p4im" path="res://assets/game board.png" id="1_of1rb"]
+[ext_resource type="PackedScene" uid="uid://ceqhjvg27ldac" path="res://assets/scenes/robot.tscn" id="2_wpcle"]
+[ext_resource type="PackedScene" uid="uid://dcvwrcd1ep12a" path="res://assets/scenes/blue_sample.tscn" id="3_51i6r"]
+[ext_resource type="PackedScene" uid="uid://baegahdp6jvsv" path="res://assets/scenes/neutral_sample.tscn" id="4_lpkdx"]
+[ext_resource type="PackedScene" uid="uid://ccwl66ydafrd3" path="res://assets/scenes/red_sample.tscn" id="5_87u4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwqbp"]
+size = Vector2(197.424, 96.2085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcojs"]
+size = Vector2(600.646, 57.3066)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2avji"]
+size = Vector2(5.99999, 39)
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GameBoard" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("1_of1rb")
+
+[node name="submersible hitbox" type="StaticBody2D" parent="GameBoard"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/submersible hitbox"]
+position = Vector2(0.718808, 0.0887415)
+shape = SubResource("RectangleShape2D_iwqbp")
+
+[node name="left boundary" type="StaticBody2D" parent="GameBoard"]
+position = Vector2(0.139611, -346.023)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/left boundary"]
+position = Vector2(-1.2656, 18.7421)
+shape = SubResource("RectangleShape2D_vcojs")
+
+[node name="right boundary" type="StaticBody2D" parent="GameBoard"]
+position = Vector2(1.291, 310.038)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/right boundary"]
+position = Vector2(-1.2656, 18.7421)
+shape = SubResource("RectangleShape2D_vcojs")
+
+[node name="top boundary" type="StaticBody2D" parent="GameBoard"]
+position = Vector2(311.05, -2.27899)
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/top boundary"]
+position = Vector2(-1.2656, 18.7421)
+shape = SubResource("RectangleShape2D_vcojs")
+
+[node name="bottom boundary" type="StaticBody2D" parent="GameBoard"]
+position = Vector2(-348.011, -1.16347)
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/bottom boundary"]
+position = Vector2(-1.2656, 18.7421)
+shape = SubResource("RectangleShape2D_vcojs")
+
+[node name="lower left bar boundary" type="StaticBody2D" parent="GameBoard"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/lower left bar boundary"]
+position = Vector2(-97, -67.5)
+shape = SubResource("RectangleShape2D_2avji")
+
+[node name="lower right bar boundary" type="StaticBody2D" parent="GameBoard"]
+position = Vector2(-5.90104e-06, 135)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/lower right bar boundary"]
+position = Vector2(-97, -67.5)
+shape = SubResource("RectangleShape2D_2avji")
+
+[node name="top right bar boundary" type="StaticBody2D" parent="GameBoard"]
+position = Vector2(194, 135)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/top right bar boundary"]
+position = Vector2(-97, -67.5)
+shape = SubResource("RectangleShape2D_2avji")
+
+[node name="top left bar boundary" type="StaticBody2D" parent="GameBoard"]
+position = Vector2(194, 1.52588e-05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/top left bar boundary"]
+position = Vector2(-97, -67.5)
+shape = SubResource("RectangleShape2D_2avji")
+
+[node name="robot" parent="." instance=ExtResource("2_wpcle")]
+position = Vector2(3, 248)
+scale = Vector2(0.65, 0.65)
+
+[node name="samples" type="Node" parent="."]
+
+[node name="blue_sample" parent="samples" instance=ExtResource("3_51i6r")]
+position = Vector2(210, 117)
+
+[node name="blue_sample2" parent="samples" instance=ExtResource("3_51i6r")]
+position = Vector2(246, 117)
+
+[node name="blue_sample3" parent="samples" instance=ExtResource("3_51i6r")]
+position = Vector2(282, 117)
+
+[node name="neutral_sample" parent="samples" instance=ExtResource("4_lpkdx")]
+position = Vector2(-282, 123)
+
+[node name="neutral_sample2" parent="samples" instance=ExtResource("4_lpkdx")]
+position = Vector2(-248, 123)
+
+[node name="neutral_sample3" parent="samples" instance=ExtResource("4_lpkdx")]
+position = Vector2(-212, 123)
+
+[node name="neutral_sample4" parent="samples" instance=ExtResource("4_lpkdx")]
+position = Vector2(210, -123)
+
+[node name="neutral_sample5" parent="samples" instance=ExtResource("4_lpkdx")]
+position = Vector2(244, -123)
+
+[node name="neutral_sample6" parent="samples" instance=ExtResource("4_lpkdx")]
+position = Vector2(280, -123)
+
+[node name="red_sample" parent="samples" instance=ExtResource("5_87u4e")]
+position = Vector2(-212, -117)
+
+[node name="red_sample2" parent="samples" instance=ExtResource("5_87u4e")]
+position = Vector2(-248, -117)
+
+[node name="red_sample3" parent="samples" instance=ExtResource("5_87u4e")]
+position = Vector2(-282, -117)

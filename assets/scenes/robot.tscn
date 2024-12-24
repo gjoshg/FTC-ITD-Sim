@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceqhjvg27ldac"]
+
+[ext_resource type="Script" path="res://assets/scenes/robot.gd" id="1_3ftx0"]
+[ext_resource type="Texture2D" uid="uid://f373k07nv6gr" path="res://assets/sprites/robot.png" id="1_8vtit"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_044c1"]
+size = Vector2(94.0476, 85.7143)
+
+[node name="robot" type="CharacterBody2D"]
+scale = Vector2(0.84, 0.84)
+script = ExtResource("1_3ftx0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.595243, -1.19047)
+shape = SubResource("RectangleShape2D_044c1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8vtit")
