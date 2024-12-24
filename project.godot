@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 window/size/viewport_width=700
 window/size/viewport_height=700
 
+[global_group]
+
+samples=""
+
 [physics]
 
 2d/default_gravity=0.0
+2d/default_linear_damp=5.0

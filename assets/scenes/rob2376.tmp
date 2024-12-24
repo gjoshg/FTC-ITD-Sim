@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://ceqhjvg27ldac"]
+
+[ext_resource type="Script" path="res://assets/scenes/robot.gd" id="1_3ftx0"]
+[ext_resource type="Texture2D" uid="uid://f373k07nv6gr" path="res://assets/sprites/robot.png" id="1_8vtit"]
+[ext_resource type="Texture2D" uid="uid://i18f6xl2eq7p" path="res://assets/sprites/claw arm.png" id="3_t3h0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_044c1"]
+size = Vector2(94.0476, 85.7143)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oglj3"]
+size = Vector2(14.2857, 24.1488)
+
+[node name="robot" type="CharacterBody2D" node_paths=PackedStringArray("arm", "claw")]
+scale = Vector2(0.84, 0.84)
+script = ExtResource("1_3ftx0")
+arm = NodePath("Arm")
+claw = NodePath("Arm/CollisionShape2D/ArmSprite/Claw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.595243, -1.19047)
+shape = SubResource("RectangleShape2D_044c1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("1_8vtit")
+
+[node name="Arm" type="StaticBody2D" parent="."]
+position = Vector2(-1.19048, -45.2381)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arm"]
+position = Vector2(-1.19209e-07, -3.8147e-06)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_oglj3")
+
+[node name="ArmSprite" type="Sprite2D" parent="Arm/CollisionShape2D"]
+z_index = 1
+position = Vector2(1.19209e-07, 3.8147e-06)
+scale = Vector2(1, 1)
+texture = ExtResource("3_t3h0w")
+
+[node name="Claw" type="Node2D" parent="Arm/CollisionShape2D/ArmSprite"]
+top_level = true
+position = Vector2(0, -36)
+scale = Vector2(1, 1)
+
+[node name="LeftClawBase" type="Sprite2D" parent="Arm/CollisionShape2D/ArmSprite/Claw"]
+position = Vector2(-9.09524, -14.2857)
+rotation = -0.785397
+scale = Vector2(0.47619, 0.47619)
+texture = ExtResource("3_t3h0w")
+
+[node name="LeftClawOut" type="Sprite2D" parent="Arm/CollisionShape2D/ArmSprite/Claw"]
+position = Vector2(-12.6667, -21.4286)
+scale = Vector2(0.47619, 0.47619)
+texture = ExtResource("3_t3h0w")
+
+[node name="RightClawOut" type="Sprite2D" parent="Arm/CollisionShape2D/ArmSprite/Claw"]
+position = Vector2(10.969, -21.4286)
+scale = Vector2(0.47619, 0.47619)
+texture = ExtResource("3_t3h0w")
+
+[node name="RightClawBase" type="Sprite2D" parent="Arm/CollisionShape2D/ArmSprite/Claw"]
+position = Vector2(7.39762, -14.2857)
+rotation = 0.785397
+scale = Vector2(0.47619, 0.47619)
+texture = ExtResource("3_t3h0w")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Arm/CollisionShape2D/ArmSprite"]
+remote_path = NodePath("../Claw")
+update_scale = false

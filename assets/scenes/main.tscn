@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ds8yufo085fbw"]
 
-[ext_resource type="Texture2D" uid="uid://bcanwada7p4im" path="res://assets/game board.png" id="1_of1rb"]
+[ext_resource type="Texture2D" uid="uid://bcanwada7p4im" path="res://assets/sprites/game board.png" id="1_of1rb"]
 [ext_resource type="PackedScene" uid="uid://ceqhjvg27ldac" path="res://assets/scenes/robot.tscn" id="2_wpcle"]
 [ext_resource type="PackedScene" uid="uid://dcvwrcd1ep12a" path="res://assets/scenes/blue_sample.tscn" id="3_51i6r"]
 [ext_resource type="PackedScene" uid="uid://baegahdp6jvsv" path="res://assets/scenes/neutral_sample.tscn" id="4_lpkdx"]
@@ -24,6 +24,7 @@ rotation = -1.5708
 texture = ExtResource("1_of1rb")
 
 [node name="submersible hitbox" type="StaticBody2D" parent="GameBoard"]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/submersible hitbox"]
 position = Vector2(0.718808, 0.0887415)
@@ -31,6 +32,7 @@ shape = SubResource("RectangleShape2D_iwqbp")
 
 [node name="left boundary" type="StaticBody2D" parent="GameBoard"]
 position = Vector2(0.139611, -346.023)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/left boundary"]
 position = Vector2(-1.2656, 18.7421)
@@ -38,6 +40,7 @@ shape = SubResource("RectangleShape2D_vcojs")
 
 [node name="right boundary" type="StaticBody2D" parent="GameBoard"]
 position = Vector2(1.291, 310.038)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/right boundary"]
 position = Vector2(-1.2656, 18.7421)
@@ -46,6 +49,7 @@ shape = SubResource("RectangleShape2D_vcojs")
 [node name="top boundary" type="StaticBody2D" parent="GameBoard"]
 position = Vector2(311.05, -2.27899)
 rotation = -1.57079
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/top boundary"]
 position = Vector2(-1.2656, 18.7421)
@@ -54,12 +58,14 @@ shape = SubResource("RectangleShape2D_vcojs")
 [node name="bottom boundary" type="StaticBody2D" parent="GameBoard"]
 position = Vector2(-348.011, -1.16347)
 rotation = -1.57079
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/bottom boundary"]
 position = Vector2(-1.2656, 18.7421)
 shape = SubResource("RectangleShape2D_vcojs")
 
 [node name="lower left bar boundary" type="StaticBody2D" parent="GameBoard"]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/lower left bar boundary"]
 position = Vector2(-97, -67.5)
@@ -67,6 +73,7 @@ shape = SubResource("RectangleShape2D_2avji")
 
 [node name="lower right bar boundary" type="StaticBody2D" parent="GameBoard"]
 position = Vector2(-5.90104e-06, 135)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/lower right bar boundary"]
 position = Vector2(-97, -67.5)
@@ -74,6 +81,7 @@ shape = SubResource("RectangleShape2D_2avji")
 
 [node name="top right bar boundary" type="StaticBody2D" parent="GameBoard"]
 position = Vector2(194, 135)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/top right bar boundary"]
 position = Vector2(-97, -67.5)
@@ -81,6 +89,7 @@ shape = SubResource("RectangleShape2D_2avji")
 
 [node name="top left bar boundary" type="StaticBody2D" parent="GameBoard"]
 position = Vector2(194, 1.52588e-05)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameBoard/top left bar boundary"]
 position = Vector2(-97, -67.5)
